@@ -4,13 +4,18 @@ namespace CW11.Application.Model
 {
     public class Prescription
     {
-        public Prescription(int idPrescription, DateTime date, DateTime dueDate, int idPatient, int idDoctor)
+        private Prescription()
+        {
+                
+        }
+        
+        public Prescription(int idPrescription, DateTime date, DateTime dueDate, Patient patient, Doctor doctor)
         {
             IdPrescription = idPrescription;
             Date = date;
             DueDate = dueDate;
-            IdPatient = idPatient;
-            IdDoctor = idDoctor;
+            Patient = patient;
+            Doctor = doctor;
         }
 
         public int IdPrescription { get; private set; }
@@ -19,8 +24,8 @@ namespace CW11.Application.Model
 
         public DateTime DueDate { get; private set; }
         
-        public int IdPatient { get; private set; }
+        public virtual Patient Patient { get; private set; }
         
-        public int IdDoctor { get; private set; }
+        public virtual Doctor Doctor { get; private set; }
     }
 }
